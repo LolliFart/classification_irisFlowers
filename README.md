@@ -5,9 +5,9 @@ Learning Data Science is pretty fun for me, you will get your taste in different
 
 ---
 
-### Getting Started
+# Getting Started
 
-1.  Install packages
+## 1. Install packages
 
     `install.packages('caret')`
 
@@ -21,13 +21,13 @@ Learning Data Science is pretty fun for me, you will get your taste in different
 
     The caret package provide a consistent interface into hundreds of machine learning algorithms and provides useful convenience methods for data visualization, data resampling, model that need for training and model comparison, among other features. It's a must have tool for machine learing projects in R.
 
-2.  Load the Data
+## 2. Load the Data
 
     `irisDataSet = read.csv("iris.csv", header=TRUE, stringsAsFactors=T)`
 
     **stringsAsFactors=T** to avoid random errors later on
 
-    2.3 Create a Validation Dataset
+    ##### 2.3 Create a Validation Dataset
 
     We need to know that the model we created is any good.
 
@@ -45,7 +45,7 @@ Learning Data Science is pretty fun for me, you will get your taste in different
     use remaining 80% of ata to training and testing the models
     `irisDataSet = irisDataSet[validation_index,]`
 
-3.  Summarize Dataset
+## 3. Summarize Dataset
 
     We will land into exciting part, now it is time to take a look at the data
 
@@ -58,7 +58,7 @@ Learning Data Science is pretty fun for me, you will get your taste in different
     - Breakdown of the instances in each class
     - Statistical summary of all attributes
 
-      3.1 Dimensions of Dataset
+    ##### 3.1 Dimensions of Dataset
 
     We can get a quick idea of how many istances (rows) and how many attributes (columns) the data contains with the dim function
 
@@ -66,7 +66,7 @@ Learning Data Science is pretty fun for me, you will get your taste in different
 
     The output should be `[1] 120 5` 120 instances and 5 attributes
 
-    3.2 Types of attributes
+    ##### 3.2 Types of attributes
 
     It is also good idea to get an idea of the types of the attributes we are getting from the datasets. They could be doubles, integers, strings, factors etc.
 
@@ -76,7 +76,7 @@ Learning Data Science is pretty fun for me, you will get your taste in different
 
     We should getting this output `sepal_lengths sepal_width petal_length petal_width Species "numeric" "numeric" "numeric" "numeric" "factor"`
 
-    3.3 Peek at the Data
+    ##### 3.3 Peek at the Data
 
     it is also always a good idea to actually have an eyeball to your data.
 
@@ -84,7 +84,7 @@ Learning Data Science is pretty fun for me, you will get your taste in different
 
     We should getting this out put `sepal_lengths sepal_width petal_length petal_width Species 1 5.1 3.5 1.4 0.2 setosa 2 4.9 3.0 1.4 0.2 setosa 3 4.7 3.2 1.3 0.2 setosa 4 4.6 3.1 1.5 0.2 setosa 6 5.4 3.9 1.7 0.4 setosa 7 4.6 3.4 1.4 0.3 setosa`
 
-    3.4 Levels of the Class
+    ##### 3.4 Levels of the Class
 
     The class variable is a factor. A factor is a class that has multiple class labels or levels. Lets peek into it
 
@@ -94,7 +94,7 @@ Learning Data Science is pretty fun for me, you will get your taste in different
 
     This is a multi-class or a multinomial classification problem. If there were two levels, it would be a binary classification problem.
 
-    3.5 Class Distribution
+    ##### 3.5 Class Distribution
 
     Lets now take a look at the number of instances (row) that belong to each class. We can view this as an absolute count and as a percentage
 
