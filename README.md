@@ -3,9 +3,7 @@
 Classification of Iris Flowers using caret packages machine learning and other syntax in R that i have learn in Data Science 2
 Learning Data Science is pretty fun for me, you will get your taste in different approach and statistical configuration in every data sets, Data science is helping people in various socioeconomic and health sectors. Therefore i realize that data and data scientist is there to help the world to become a better place. Learning Data Science in order to create better solutions for real-world problems that people may face today.
 
----
-
-# Getting Started
+## Getting Started
 
 ## 1. Install packages
 
