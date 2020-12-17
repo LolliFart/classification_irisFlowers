@@ -39,8 +39,8 @@ for(i in 1:4) {
     boxplot(x[,i], main=names(iris)[i])
 }
 
-#barplot for class breakdown
-# plot(y);
+barplot for class breakdown
+plot(y);
 
 #scatter plot matrix
 # featurePlot(x=x, y=y, plot="ellipse");

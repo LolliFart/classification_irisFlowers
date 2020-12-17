@@ -166,3 +166,12 @@ This will give us much clearer idea of the distribution of the input attributes
 <div align="center">
     <img  width="800" height="800" src="https://github.com/zneret03/classification_irisFlowers/blob/main/static/Boxplot.png">
 </div>
+
+We can also create a barplot of the Species class variable to get a graphical representation of the class distribution
+
+    `barplot for class breakdown
+    plot(y);`
+
+<div align="center">
+    <img  width="800" height="800" src="https://github.com/zneret03/classification_irisFlowers/blob/main/static/Barplot.png">
+</div>
