@@ -82,7 +82,7 @@ Learning Data Science is pretty fun for me, you will get your taste in different
 
     `head(irisDataSet)`
 
-    We should getting this out put ` sepal_lengths sepal_width petal_length petal_width Species 1 5.1 3.5 1.4 0.2 setosa 2 4.9 3.0 1.4 0.2 setosa 3 4.7 3.2 1.3 0.2 setosa 4 4.6 3.1 1.5 0.2 setosa 6 5.4 3.9 1.7 0.4 setosa 7 4.6 3.4 1.4 0.3 setosa`
+    We should getting this out put `sepal_lengths sepal_width petal_length petal_width Species 1 5.1 3.5 1.4 0.2 setosa 2 4.9 3.0 1.4 0.2 setosa 3 4.7 3.2 1.3 0.2 setosa 4 4.6 3.1 1.5 0.2 setosa 6 5.4 3.9 1.7 0.4 setosa 7 4.6 3.4 1.4 0.3 setosa`
 
     3.4 Levels of the Class
 
@@ -94,9 +94,8 @@ Learning Data Science is pretty fun for me, you will get your taste in different
 
     This is a multi-class or a multinomial classification problem. If there were two levels, it would be a binary classification problem.
 
-        3.5 Class Distribution
+    3.5 Class Distribution
 
-        Lets now take a look at the number of instances (row) that belong to each class. We can view this as an absolute count and as a percentage
+    Lets now take a look at the number of instances (row) that belong to each class. We can view this as an absolute count and as a percentage
 
-        `percentage = prop.table(table(irisDataSet$Species)) * 100;
-        cbind(freq=table(irisDataSet$Species), percentage=percentage)`
+    `percentage = prop.table(table(irisDataSet$Species)) * 100; cbind(freq=table(irisDataSet$Species), percentage=percentage)`
