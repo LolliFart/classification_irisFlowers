@@ -34,10 +34,10 @@ x = irisDataSet[,1:4];
 y = irisDataSet[,5];
 
 #boxplot or each attribute on one image
-# par(mfrow=c(1,4))
-# for(i in 1:4) {
-#     boxplot(x[,i], main=names(iris)[i])
-# }
+par(mfrow=c(1,4))
+for(i in 1:4) {
+    boxplot(x[,i], main=names(iris)[i])
+}
 
 #barplot for class breakdown
 # plot(y);

@@ -130,3 +130,36 @@ We can see that all of the numerical values have the same scale (centimeters) an
      setosa :40
      versicolor:40
      virginica :40 `
+
+## 4. Visualize Dataset
+
+We now have a an idea about our data iris Flowers. We need to extend that with some visualization
+
+We are going to look at two types of plots :
+
+- Univariate plots to better understand each attribute.
+- Multivariate plots to better understand the relationships between attributes.
+
+##### 4.1 Univariate Plots
+
+We start with some univariate plots, that is, plots of each individual variable.
+
+it is helpful with visualization to have a way to prefer to just the input attributes and just the output attributes. Let's set that up and call the inputs attribute `x` and the output attribute `y`
+
+    `#split input and output
+
+    x = irisDataSet[,1:4];
+    y = irisDataSet[,5];`
+
+Given that the input variables are numeric, we can create box and whisker plots of each
+
+    `#boxplot or each attribute on one image
+
+    par(mfrow=c(1,4))
+    for(i in 1:4) {
+    boxplot(x[,i], main=names(iris)[i])
+    }
+    `
+
+    This will give us much clearer idea of the distribution of the input attributes
+    ![demo](https://github.com/zneret03/classification_irisFlowers/blob/main/static/Boxplot.png)
