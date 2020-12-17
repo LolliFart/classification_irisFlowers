@@ -161,5 +161,6 @@ Given that the input variables are numeric, we can create box and whisker plots 
     }
     `
 
-    This will give us much clearer idea of the distribution of the input attributes
+This will give us much clearer idea of the distribution of the input attributes
+
     ![demo](https://github.com/zneret03/classification_irisFlowers/blob/main/static/Boxplot.png)
