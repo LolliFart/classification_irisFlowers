@@ -208,3 +208,209 @@ Next we can get an idea of the distribution of each attribute, again like the bo
 <div align="center">
     <img  width="800" height="800" src="https://github.com/zneret03/classification_irisFlowers/blob/main/static/Density_Plots.png">
 </div>
+
+Like the boxplots, we can see the differences in distribution of each attribute by class value. We can also see the Gaussian-like distribution (bell curve) of each attribute
+
+## 5. Evaluate Some Algorithms
+
+Now its time to create some models of the data and estimate their accuracy on unseen data, we wil train different models and compare who is the must accurate one.
+
+Here is the step what we will be going to cover :
+
+- Set-up the test harnes to use 10-fold cross validation
+- Build 5 different models to predict species from flower measurements
+- Select the best model
+
+##### 5.1 Test Harnes
+
+We will use 10-folds cross validation to estimate the accuracy of the model
+
+This will plits the dataset into 10 parts, train in 9 and test on 1 and release all combinitations of train-test splits. We will also repeat the process 3 times for each algorithms with different split of the data into 10 groups, in an effort to get a more accurate estimate.
+
+    #Run algorithms using 10-fold cross validation
+    control = trainControl(method="cv", number=10);
+    metric = "Accuracy"
+
+We are ysubg metric to evaluate models. This is a ratio of the number of correctly predicted instances in divided by the total number of instances in the dataset multiplied by 100 to give a percentage (e.g 95% accurate). We will be using the metric variable when we build and evaluate each model
+
+##### 5.1 Build Models
+
+We still dont know what algorithm to use on this problem or what configurations to use. We get an idea from the plots that some of the classes are partially linearly separable in some dimensions.
+
+These are the 5 different algorithms that we will be using for testing accuracy
+
+- Linear Discriminant Analysis (LDA)
+- Classification and Regression Trees (CART)
+- K-Nearest Neighbors (kNN)
+- Support Vector Machines (SVM) with linear kernel.
+- Random Forest (RF)
+
+This is a good mixture of simple linear (LDA), nonlinear (CART, kNN) and complex nonlinear methods (SVM, RF). We reset the random number seed before reach run to ensure that the evaluation of each algorithm is performed using exactly the same data splits. It ensures the results are directly comparable
+
+These are the models we will building
+
+    a) linear algorithms
+    set.seed(7)
+    fit.lda = train(Species~., data=irisDataSet, method="lda", metric=metric, trControl=control)
+
+    #b) nonlinear algorithms
+    #CART
+    set.seed(7)
+    fit.cart = train(Species~., data=irisDataSet, method="rpart", metric=metric, trControl=control)
+
+    # kNN
+    set.seed(7)
+    fit.knn = train(Species~., data=irisDataSet, method="knn", metric=metric, trControl=control)
+
+    #c) advanced algoithms
+    #SVM
+    set.seed(7)
+    fit.svm = train(Species~., data=irisDataSet, method="svmRadial", metric=metric, trControl=control)
+
+    #Random Forest
+    set.seed(7)
+    fit.rf = train(Species~., data=irisDataSet, method="rf", metric=metric, trControl=control)
+
+##### 5.1 Selecting the best models
+
+So we have 5 models and accuracy estimatins for each. We need to compare the models to each other and select the most accurate one.
+We can report on the accuracy of each model by first creating a list of the created models and using the summary function;
+
+    results = resamples(list(lda=fit.lda, cart=fit.cart, knn=fit.knn, svm=fit.svm, rf=fit.rf))
+    summary(results)
+
+We can now see the accuracy of each classifier and also the other metrics like kappa :
+
+    Call:
+    summary.resamples(object = results)
+
+    Models: lda, cart, knn, svm, rf
+    Number of resamples: 10
+
+    Accuracy
+            Min.   1st Qu.    Median      Mean 3rd Qu. Max. NA's
+    lda  0.9166667 0.9375000 1.0000000 0.9750000       1    1    0
+    cart 0.8333333 0.9375000 1.0000000 0.9666667       1    1    0
+    knn  0.9166667 0.9166667 0.9166667 0.9500000       1    1    0
+    svm  0.8333333 0.9166667 1.0000000 0.9500000       1    1    0
+    rf   0.8333333 0.9166667 1.0000000 0.9583333       1    1    0
+
+    Kappa
+        Min. 1st Qu. Median   Mean 3rd Qu. Max. NA's
+    lda  0.875 0.90625  1.000 0.9625       1    1    0
+    cart 0.750 0.90625  1.000 0.9500       1    1    0
+    knn  0.875 0.87500  0.875 0.9250       1    1    0
+    svm  0.750 0.87500  1.000 0.9250       1    1    0
+    rf   0.750 0.87500  1.000 0.9375       1    1    0
+
+We can also create a plot of the model evaluation results and compare the spread and the mean accuracy of each model. There is a population of accuracy measures for each algorithm because each algorithm was evaluated 10 times (10 folds cross validation)
+
+<div align="center">
+    <img  width="800" height="800" src="https://github.com/zneret03/classification_irisFlowers/blob/main/static/dotplot.png">
+</div>
+
+We can see the most accurate model is LDA whit confidence level of 0.95 or 95%.
+We can also print the result of LDA or Linear Discriminant Analysis
+
+    Linear Discriminant Analysis
+
+    120 samples
+    4 predictor
+    3 classes: 'setosa', 'versicolor', 'virginica'
+
+    No pre-processing
+    Resampling: Cross-Validated (10 fold)
+    Summary of sample sizes: 108, 108, 108, 108, 108, 108, ...
+    Resampling results:
+
+    Accuracy  Kappa
+    0.975     0.9625
+
+As we can see the accuracy is 0.975, its pretty high accuracy
+
+## 6. Make Predictions
+
+The LDA was the most accurate model that we have.
+
+This will give us an independent final check on the accuracy of the best model.it is valuable to keep a validation set just incase we made a slip during such as overfitting to the training set or a data leak. Both will result in an overly optimistic result.
+
+We can run the LDA directly on the validation set and summarize the results in confusion matrix.
+
+    #estimate skills of LDA on the validatio dataset
+    predictions = predict(fit.lda, validation)
+    confusionMatrix(predictions, validation$Species);
+
+We can see that the accuracy of iris flowers dataset classification is 100% or 1. It was a small validation with 20% of the dataset.
+
+    Confusion Matrix and Statistics
+
+            Reference
+    Prediction   setosa versicolor virginica
+    setosa         10          0         0
+    versicolor      0         10         0
+    virginica       0          0        10
+
+    Overall Statistics
+
+                Accuracy : 1
+                    95% CI : (0.8843, 1)
+        No Information Rate : 0.3333
+        P-Value [Acc > NIR] : 4.857e-15
+
+                    Kappa : 1
+
+    Mcnemar's Test P-Value : NA
+
+    Statistics by Class:
+
+                        Class: setosa Class: versicolor Class: virginica
+    Sensitivity                 1.0000            1.0000           1.0000
+    Specificity                 1.0000            1.0000           1.0000
+    Pos Pred Value              1.0000            1.0000           1.0000
+    Neg Pred Value              1.0000            1.0000           1.0000
+    Prevalence                  0.3333            0.3333           0.3333
+    Detection Rate              0.3333            0.3333           0.3333
+    Detection Prevalence        0.3333            0.3333           0.3333
+    Balanced Accuracy           1.0000            1.0000           1.0000
+
+But if we change the confusion matrix data into a full dataset of Iris flowers
+
+    #estimate skills of LDA on the validatio dataset
+    predictions = predict(fit.lda, irisDataSet)
+    confusionMatrix(predictions, irisDataSet$Species);
+
+We will be getting the 0.98 or 98% percent accuracy of Iris Flowers Dataset Classifier its still pretty high accuracy for predicting Iris flower datasets
+
+    Confusion Matrix and Statistics
+
+                Reference
+
+    Prediction setosa versicolor virginica
+    setosa 40 0 0
+    versicolor 0 38 0
+    virginica 0 2 40
+
+    Overall Statistics
+
+                Accuracy : 0.9833
+                    95% CI : (0.9411, 0.998)
+        No Information Rate : 0.3333
+        P-Value [Acc > NIR] : < 2.2e-16
+
+                    Kappa : 0.975
+
+
+    Mcnemar's Test P-Value : NA
+
+    Statistics by Class:
+
+                        Class: setosa Class: versicolor Class: virginica
+
+    Sensitivity 1.0000 0.9500 1.0000
+    Specificity 1.0000 1.0000 0.9750
+    Pos Pred Value 1.0000 1.0000 0.9524
+    Neg Pred Value 1.0000 0.9756 1.0000
+    Prevalence 0.3333 0.3333 0.3333
+    Detection Rate 0.3333 0.3167 0.3333
+    Detection Prevalence 0.3333 0.3167 0.3500
+    Balanced Accuracy 1.0000 0.9750 0.9875

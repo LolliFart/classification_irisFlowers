@@ -39,18 +39,18 @@ for(i in 1:4) {
     boxplot(x[,i], main=names(iris)[i])
 }
 
-barplot for class breakdown
+#barplot for class breakdown
 plot(y);
 
 #scatter plot matrix
 featurePlot(x=x, y=y, plot="ellipse");
 
 #box and whisker plots for each attribute
-# featurePlot(x=x, y=y, plot="box")
+featurePlot(x=x, y=y, plot="box")
 
 #density plots for each attribute by class value
-# scales = list(x=list(relation="free"), y=list(relation="free"))
-# featurePlot(x=x, y=y, plot="density", scales=scales);
+scales = list(x=list(relation="free"), y=list(relation="free"))
+featurePlot(x=x, y=y, plot="density", scales=scales);
 
 #Run algorithms using 10-fold cross validation
 control = trainControl(method="cv", number=10);
@@ -74,12 +74,14 @@ fit.svm = train(Species~., data=irisDataSet, method="svmRadial", metric=metric, 
 set.seed(7)
 fit.rf = train(Species~., data=irisDataSet, method="rf", metric=metric, trControl=control)
 
-# #summarize accuracy of models
-results = resamples(list(lda=fit.lda, cart=fit.cart, knn=fit.knn, svm=fit.svm, rf=fit.rf))
+print(fit.lda);
 
+# #summarize accuracy of models
+# results = resamples(list(lda=fit.lda, cart=fit.cart, knn=fit.knn, svm=fit.svm, rf=fit.rf))
+# summary(results)
 # #compare accuracy of models
 #dotplot(results)
 
-# #estimate skills of LDA on the validatio dataset
+#estimate skills of LDA on the validatio dataset
 predictions = predict(fit.lda, irisDataSet)
 confusionMatrix(predictions, irisDataSet$Species);
