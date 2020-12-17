@@ -26,6 +26,8 @@ levels(irisDataSet$Species)
 percentage = prop.table(table(irisDataSet$Species)) * 100;
 cbind(freq=table(irisDataSet$Species), percentage=percentage)
 
+summary(irisDataSet)
+
 #summary(irisDataSet)  
 #split input and output                                                         
 x = irisDataSet[,1:4];
