@@ -3,8 +3,6 @@
 Classification of Iris Flowers using caret packages machine learning and other syntax in R that i have learn in Data Science 2
 Learning Data Science is pretty fun for me, you will get your taste in different approach and statistical configuration in every data sets, Data science is helping people in various socioeconomic and health sectors. Therefore i realize that data and data scientist is there to help the world to become a better place. Learning Data Science in order to create better solutions for real-world problems that people may face today.
 
-## Getting Started
-
 ## 1. Install packages
 
     install.packages('caret')
@@ -414,3 +412,8 @@ We will be getting the 0.98 or 98% percent accuracy of Iris Flowers Dataset Clas
     Detection Rate 0.3333 0.3167 0.3333
     Detection Prevalence 0.3333 0.3167 0.3500
     Balanced Accuracy 1.0000 0.9750 0.9875
+
+## Technology & packages used
+
+- [R](https://www.r-project.org/)
+- [Caret](https://cran.r-project.org/web/packages/caret/caret.pdf)

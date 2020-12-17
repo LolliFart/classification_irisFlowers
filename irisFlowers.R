@@ -77,10 +77,10 @@ fit.rf = train(Species~., data=irisDataSet, method="rf", metric=metric, trContro
 print(fit.lda);
 
 # #summarize accuracy of models
-# results = resamples(list(lda=fit.lda, cart=fit.cart, knn=fit.knn, svm=fit.svm, rf=fit.rf))
-# summary(results)
+results = resamples(list(lda=fit.lda, cart=fit.cart, knn=fit.knn, svm=fit.svm, rf=fit.rf))
+summary(results)
 # #compare accuracy of models
-#dotplot(results)
+dotplot(results)
 
 #estimate skills of LDA on the validatio dataset
 predictions = predict(fit.lda, irisDataSet)
