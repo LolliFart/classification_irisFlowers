@@ -7,15 +7,15 @@ Learning Data Science is pretty fun for me, you will get your taste in different
 
 ## 1. Install packages
 
-    `install.packages('caret')`
+    install.packages('caret')
 
 We may need other packages, but caret should ask us if we want to load them. If you are having problems with packages, you can install the caret packages and all packages that you might need by typing:
 
-    `install.packages("caret", dependencies=c("Depends", "Suggests"))`
+    install.packages("caret", dependencies=c("Depends", "Suggests"))
 
 Now, lets load the package that we are going to use in this entire project setup
 
-    `library(caret)`
+    library(caret)
 
 The caret package provide a consistent interface into hundreds of machine learning algorithms and provides useful convenience methods for data visualization, data resampling, model that need for training and model comparison, among other features. It's a must have tool for machine learing projects in R.
 
@@ -60,7 +60,7 @@ In this step we are going to tkae a look at the data a few different ways:
 
 We can get a quick idea of how many istances (rows) and how many attributes (columns) the data contains with the dim function
 
-    `dim(irisDataSet)`
+    dim(irisDataSet)
 
 The output should be `[1] 120 5` 120 instances and 5 attributes
 
@@ -70,7 +70,7 @@ It is also good idea to get an idea of the types of the attributes we are gettin
 
 Knowing the types is important as it will give you an idea of how to better summarize the data you have and the types of transforms you might need to use to prepare the data before you model it.
 
-    `sapply(irisDataSet, class)`
+    sapply(irisDataSet, class)`
 
 We should getting this output
 `sepal_lengths sepal_width petal_length petal_width Species "numeric" "numeric" "numeric" "numeric" "factor"`
@@ -79,7 +79,7 @@ We should getting this output
 
 it is also always a good idea to actually have an eyeball to your data.
 
-    `head(irisDataSet)`
+    head(irisDataSet)
 
 We should getting this out put
 `sepal_lengths sepal_width petal_length petal_width Species 1 5.1 3.5 1.4 0.2 setosa 2 4.9 3.0 1.4 0.2 setosa 3 4.7 3.2 1.3 0.2 setosa 4 4.6 3.1 1.5 0.2 setosa 6 5.4 3.9 1.7 0.4 setosa 7 4.6 3.4 1.4 0.3 setosa`
@@ -88,7 +88,7 @@ We should getting this out put
 
 The class variable is a factor. A factor is a class that has multiple class labels or levels. Lets peek into it
 
-    `levels(irisDataSet$Species)`
+    levels(irisDataSet$Species)
 
 We should getting this type of output `[1] "setosa" "versicolor" "virginica"`
 
@@ -98,16 +98,16 @@ This is a multi-class or a multinomial classification problem. If there were two
 
 Lets now take a look at the number of instances (row) that belong to each class. We can view this as an absolute count and as a percentage
 
-    `percentage = prop.table(table(irisDataSet$Species)) * 100; cbind(freq=table(irisDataSet$Species), percentage=percentage)`
+    percentage = prop.table(table(irisDataSet$Species)) * 100; cbind(freq=table(irisDataSet$Species), percentage=percentage)
 
 We should getting this type of out put
 
-    `freq percentage
+    freq percentage
 
     setosa 40 33.33333
     versicolor 40 33.33333
     virginica 40 33.33333
-    Confusion Matrix and Statistics`
+    Confusion Matrix and Statistics
 
 ##### 3.6 Statistical Summary
 
@@ -115,11 +115,11 @@ Now finally, we can take a look at a summary of each attribute
 
 This includes the mean, the min and max value as well as some percentiles (25th, 50th, or media and 75th e.g. values at this points if we ordered all the values for an attribute).
 
-    `summary(irisDataSet)`
+    summary(irisDataSet)
 
 We can see that all of the numerical values have the same scale (centimeters) and similar ranges [0,8] centimeters.
 
-    `sepal_lengths    sepal_width     petal_length    petal_width
+    sepal_lengths    sepal_width     petal_length    petal_width
      Min. :4.400 Min. :2.200 Min. :1.000 Min. :0.100
      1st Qu.:5.200 1st Qu.:2.800 1st Qu.:1.600 1st Qu.:0.300
      Median :5.800 Median :3.000 Median :4.400 Median :1.350
@@ -129,7 +129,7 @@ We can see that all of the numerical values have the same scale (centimeters) an
      Species
      setosa :40
      versicolor:40
-     virginica :40 `
+     virginica :40
 
 ## 4. Visualize Dataset
 
@@ -146,20 +146,19 @@ We start with some univariate plots, that is, plots of each individual variable.
 
 it is helpful with visualization to have a way to prefer to just the input attributes and just the output attributes. Let's set that up and call the inputs attribute `x` and the output attribute `y`
 
-    `#split input and output
+    #split input and output
 
     x = irisDataSet[,1:4];
-    y = irisDataSet[,5];`
+    y = irisDataSet[,5];
 
 Given that the input variables are numeric, we can create box and whisker plots of each
 
-    `#boxplot or each attribute on one image
+    #boxplot or each attribute on one image
 
     par(mfrow=c(1,4))
     for(i in 1:4) {
     boxplot(x[,i], main=names(iris)[i])
     }
-    `
 
 This will give us much clearer idea of the distribution of the input attributes
 
@@ -169,8 +168,8 @@ This will give us much clearer idea of the distribution of the input attributes
 
 We can also create a barplot of the Species class variable to get a graphical representation of the class distribution
 
-    `barplot for class breakdown
-    plot(y);`
+    barplot for class breakdown
+    plot(y);
 
 <div align="center">
     <img  width="800" height="800" src="https://github.com/zneret03/classification_irisFlowers/blob/main/static/Barplot.png">
@@ -182,10 +181,8 @@ Now we can take a peek to the interaction between the variables
 
 lets take a look at scatterplots of all pairs of attributes and color the points by class. In addition, because scatterplots show that points for each class ar generally separate, we can draw ellipses around them
 
-    `
     #scatter plot matrix
     featurePlot(x=x, y=y, plot="ellipse");
-    `
 
 <div align="center">
     <img  width="800" height="800" src="https://github.com/zneret03/classification_irisFlowers/blob/main/static/Scatter_plot_matrix.png">
