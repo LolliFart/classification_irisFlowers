@@ -11,15 +11,15 @@ Learning Data Science is pretty fun for me, you will get your taste in different
 
     `install.packages('caret')`
 
-    We may need other packages, but caret should ask us if we want to load them. If you are having problems with packages, you can install the caret packages and all packages that you might need by typing:
+We may need other packages, but caret should ask us if we want to load them. If you are having problems with packages, you can install the caret packages and all packages that you might need by typing:
 
     `install.packages("caret", dependencies=c("Depends", "Suggests"))`
 
-    Now, lets load the package that we are going to use in this entire project setup
+Now, lets load the package that we are going to use in this entire project setup
 
     `library(caret)`
 
-    The caret package provide a consistent interface into hundreds of machine learning algorithms and provides useful convenience methods for data visualization, data resampling, model that need for training and model comparison, among other features. It's a must have tool for machine learing projects in R.
+The caret package provide a consistent interface into hundreds of machine learning algorithms and provides useful convenience methods for data visualization, data resampling, model that need for training and model comparison, among other features. It's a must have tool for machine learing projects in R.
 
 ## 2. Load the Data
 
