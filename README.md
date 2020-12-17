@@ -198,3 +198,13 @@ We can also take a look with box and whisker plots for each input variable again
 <div align="center">
     <img  width="800" height="800" src="https://github.com/zneret03/classification_irisFlowers/blob/main/static/Box_and_whisker.png">
 </div>
+
+Next we can get an idea of the distribution of each attribute, again like the box and whisker plots, broken down by class value. Sometimes histograms are good for this, but in this case we will use some probability density plots to give nice smooth lines for each distribution.
+
+    #density plots for each attribute by class value
+    scales = list(x=list(relation="free"), y=list(relation="free"))
+    featurePlot(x=x, y=y, plot="density", scales=scales);
+
+<div align="center">
+    <img  width="800" height="800" src="https://github.com/zneret03/classification_irisFlowers/blob/main/static/Density_Plots.png">
+</div>
