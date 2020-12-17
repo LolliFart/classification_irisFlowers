@@ -119,15 +119,14 @@ This includes the mean, the min and max value as well as some percentiles (25th,
 
 We can see that all of the numerical values have the same scale (centimeters) and similar ranges [0,8] centimeters.
 
-    ` sepal_lengths    sepal_width     petal_length    petal_width
-
-Min. :4.400 Min. :2.200 Min. :1.000 Min. :0.100  
- 1st Qu.:5.200 1st Qu.:2.800 1st Qu.:1.600 1st Qu.:0.300  
- Median :5.800 Median :3.000 Median :4.400 Median :1.350  
- Mean :5.867 Mean :3.058 Mean :3.795 Mean :1.209  
- 3rd Qu.:6.400 3rd Qu.:3.325 3rd Qu.:5.100 3rd Qu.:1.800  
- Max. :7.900 Max. :4.400 Max. :6.900 Max. :2.500  
- Species  
- setosa :40  
- versicolor:40  
- virginica :40 `
+    `sepal_lengths    sepal_width     petal_length    petal_width
+     Min. :4.400 Min. :2.200 Min. :1.000 Min. :0.100
+     1st Qu.:5.200 1st Qu.:2.800 1st Qu.:1.600 1st Qu.:0.300
+     Median :5.800 Median :3.000 Median :4.400 Median :1.350
+     Mean :5.867 Mean :3.058 Mean :3.795 Mean :1.209
+     3rd Qu.:6.400 3rd Qu.:3.325 3rd Qu.:5.100 3rd Qu.:1.800
+     Max. :7.900 Max. :4.400 Max. :6.900 Max. :2.500
+     Species
+     setosa :40
+     versicolor:40
+     virginica :40 `
