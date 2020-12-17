@@ -189,3 +189,12 @@ lets take a look at scatterplots of all pairs of attributes and color the points
 </div>
 
 As we can see to the scatterplot matrix, the clear relationshi between the input attributes (trends) and between attributes and the class value (ellipses)
+
+We can also take a look with box and whisker plots for each input variable again, but this time broken down into separate plots for each class. This can help to tease out obvious linear separations between classes
+
+    #box and whisker plots for each attribute
+    featurePlot(x=x, y=y, plot="box")
+
+<div align="center">
+    <img  width="800" height="800" src="https://github.com/zneret03/classification_irisFlowers/blob/main/static/Box_and_whisker.png">
+</div>
