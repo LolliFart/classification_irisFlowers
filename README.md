@@ -51,14 +51,14 @@ Learning Data Science is pretty fun for me, you will get your taste in different
 
     In this step we are going to tkae a look at the data a few different ways:
 
-    1. Dimensions of the dataset
-    2. Types of the attributes
-    3. Peek at the data itself
-    4. Levels of the class attribute.
-    5. Breakdown of the instances in each class
-    6. Statistical summary of all attributes
+    - Dimensions of the dataset
+    - Types of the attributes
+    - Peek at the data itself
+    - Levels of the class attribute.
+    - Breakdown of the instances in each class
+    - Statistical summary of all attributes
 
-       3.1 Dimensions of Dataset
+      3.1 Dimensions of Dataset
 
     We can get a quick idea of how many istances (rows) and how many attributes (columns) the data contains with the dim function
 
