@@ -43,7 +43,7 @@ barplot for class breakdown
 plot(y);
 
 #scatter plot matrix
-# featurePlot(x=x, y=y, plot="ellipse");
+featurePlot(x=x, y=y, plot="ellipse");
 
 #box and whisker plots for each attribute
 # featurePlot(x=x, y=y, plot="box")

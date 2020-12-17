@@ -175,3 +175,20 @@ We can also create a barplot of the Species class variable to get a graphical re
 <div align="center">
     <img  width="800" height="800" src="https://github.com/zneret03/classification_irisFlowers/blob/main/static/Barplot.png">
 </div>
+
+##### 4.2 Multivariate Plots
+
+Now we can take a peek to the interaction between the variables
+
+lets take a look at scatterplots of all pairs of attributes and color the points by class. In addition, because scatterplots show that points for each class ar generally separate, we can draw ellipses around them
+
+    `
+    #scatter plot matrix
+    featurePlot(x=x, y=y, plot="ellipse");
+    `
+
+<div align="center">
+    <img  width="800" height="800" src="https://github.com/zneret03/classification_irisFlowers/blob/main/static/Scatter_plot_matrix.png">
+</div>
+
+As we can see to the scatterplot matrix, the clear relationshi between the input attributes (trends) and between attributes and the class value (ellipses)
