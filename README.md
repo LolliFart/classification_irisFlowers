@@ -102,7 +102,7 @@ Lets now take a look at the number of instances (row) that belong to each class.
 
     percentage = prop.table(table(irisDataSet$Species)) * 100; cbind(freq=table(irisDataSet$Species), percentage=percentage)
 
-We should getting this type of out put
+We should getting this type of output
 
     freq percentage
 
