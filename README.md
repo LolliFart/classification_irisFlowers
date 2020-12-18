@@ -17,6 +17,10 @@ Now, lets load the package that we are going to use in this entire project setup
 
 The caret package provide a consistent interface into hundreds of machine learning algorithms and provides useful convenience methods for data visualization, data resampling, model that need for training and model comparison, among other features. It's a must have tool for machine learing projects in R.
 
+We might stumble upon such error that we never expected, make sure to install also this package.
+
+    install.packages(“ellipse”)
+
 ## 2. Load the Data
 
     `irisDataSet = read.csv("iris.csv", header=TRUE, stringsAsFactors=T)`
