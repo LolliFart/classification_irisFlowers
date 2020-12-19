@@ -5,7 +5,7 @@ Learning Data Science is pretty fun for me, you will get your taste in different
 
 ## 1. Install packages
 
-`install.packages('caret')`
+    install.packages('caret')
 
 We may need other packages, but caret should ask us if we want to load them. If you are having problems with packages, you can install the caret packages and all packages that you might need by typing:
 
