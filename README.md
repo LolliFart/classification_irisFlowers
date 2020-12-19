@@ -89,7 +89,14 @@ it is also always a good idea to actually have an eyeball to your data.
     head(irisDataSet)
 
 We should getting this out put
-`sepal_lengths sepal_width petal_length petal_width Species 1 5.1 3.5 1.4 0.2 setosa 2 4.9 3.0 1.4 0.2 setosa 3 4.7 3.2 1.3 0.2 setosa 4 4.6 3.1 1.5 0.2 setosa 6 5.4 3.9 1.7 0.4 setosa 7 4.6 3.4 1.4 0.3 setosa`
+
+    sepal_lengths sepal_width petal_length petal_width   Species
+    1           5.1         3.5          1.4         0.2  setosa
+    3           4.7         3.2          1.3         0.2  setosa
+    4           4.6         3.1          1.5         0.2  setosa
+    5           5.0         3.6          1.4         0.2  setosa
+    6           5.4         3.9          1.7         0.4  setosa
+    8           5.0         3.4          1.5         0.2  setosa
 
 ##### 3.4 Levels of the Class
 
@@ -97,7 +104,9 @@ The class variable is a factor. A factor is a class that has multiple class labe
 
     levels(irisDataSet$Species)
 
-We should getting this type of output `[1] "setosa" "versicolor" "virginica"`
+We should getting this type of output
+
+    [1] "setosa" "versicolor" "virginica"
 
 This is a multi-class or a multinomial classification problem. If there were two levels, it would be a binary classification problem.
 

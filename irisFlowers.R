@@ -83,5 +83,5 @@ summary(results)
 dotplot(results)
 
 #estimate skills of LDA on the validatio dataset
-predictions = predict(fit.lda, irisDataSet)
-confusionMatrix(predictions, irisDataSet$Species);
+predictions = predict(fit.lda, validation)
+confusionMatrix(predictions, validation$Species);
