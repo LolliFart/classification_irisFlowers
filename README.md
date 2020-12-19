@@ -37,13 +37,16 @@ That is, we are going to hold back some data that the algorithms will not get to
 We will split the loaded dataset into two, 80% of which we will use to train our models and 20% that we will hold back as a validation dataset.
 
 create a list of 80% of the rows in the original dataset we can use for training
-`validation_index = createDataPartition(irisDataSet$Species, p=0.80, list=FALSE);`
+
+    validation_index = createDataPartition(irisDataSet$Species, p=0.80, list=FALSE);
 
 select 20% of the data for validation
-`validation = irisDataSet[-validation_index,];`
+
+    validation = irisDataSet[-validation_index,];
 
 use remaining 80% of ata to training and testing the models
-`irisDataSet = irisDataSet[validation_index,]`
+
+    irisDataSet = irisDataSet[validation_index,]
 
 ## 3. Summarize Dataset
 
@@ -75,7 +78,9 @@ Knowing the types is important as it will give you an idea of how to better summ
     sapply(irisDataSet, class)`
 
 We should getting this output
-`sepal_lengths sepal_width petal_length petal_width Species "numeric" "numeric" "numeric" "numeric" "factor"`
+
+    sepal_lengths   sepal_width  petal_length   petal_width       Species
+    "numeric"     "numeric"     "numeric"     "numeric"      "factor"
 
 ##### 3.3 Peek at the Data
 
